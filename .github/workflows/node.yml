@@ -1,10 +1,9 @@
 name: Node.js
 
 on:
+  workflow_dispatch:
   schedule:
-    # Warning: The time notation must be UTC timezone based.
-    #          So this schedule will be triggered at 06:00 JST.
-    - cron: '0 21 * * *'
+   - cron: '30 21 * * *'
 
 jobs:
   run:
@@ -41,3 +40,4 @@ jobs:
           CHROMIUM_HEADFUL: 1
           MICROSOFT_EMAIL: ${{ secrets.MICROSOFT_EMAIL }}
           MICROSOFT_PASSWORD: ${{ secrets.MICROSOFT_PASSWORD }}
+          FORMS_URL: ${{ secrets.FORMS_URL }} 
