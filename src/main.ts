@@ -60,11 +60,15 @@ import { Authenticator } from './authenticator';
   const values = config.answers.map((answer: Answer): unknown =>
     generatorResolver.resolve(answer).generate(answer.options),
   );
-  
+  console.log('URL: %s',response.url())
   try{
     await page.waitForSelector('.office-form-body');
   }catch(e){
-    await page.screenshot({ path: './capture/screenshot2.png' });
+    /*console.log('Logging in automatically');
+    await new Authenticator(page).login(
+      env['MICROSOFT_EMAIL'],
+      env['MICROSOFT_PASSWORD'],
+    );*/
   }
   await page.screenshot({ path: './capture/screenshot3.png' });
   //await page.waitForNavigation({waituntil: 'domcontentloaded'});
