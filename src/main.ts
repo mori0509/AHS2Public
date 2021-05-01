@@ -61,8 +61,11 @@ import { Authenticator } from './authenticator';
     generatorResolver.resolve(answer).generate(answer.options),
   );
   
-  await page.screenshot({ path: './capture/screenshot2.png' });
-  await page.waitForSelector('.office-form-body');
+  try{
+    await page.waitForSelector('.office-form-body');
+  }catch(e){
+    await page.screenshot({ path: './capture/screenshot2.png' });
+  }
   await page.screenshot({ path: './capture/screenshot3.png' });
   //await page.waitForNavigation({waituntil: 'domcontentloaded'});
   
