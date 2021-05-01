@@ -33,7 +33,7 @@ jobs:
       - name: Run
         run: |
           mkdir ./capture
-          for try in {1..1}; do
+          for try in {1..3}; do
             xvfb-run npm start && break
             sleep 30
           done
