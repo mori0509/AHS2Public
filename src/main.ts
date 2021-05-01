@@ -34,7 +34,7 @@ import { Authenticator } from './authenticator';
   console.log('Challenging to access to the form');
   console.log('Forms URL: %s ',env['FORMS_URL']);
   const response = await page.goto(config.url, {"waitUntil":"domcontentloaded"});
-  await page.screenshot({ path: 'screenshot.png' });
+
   if (response.url().startsWith('https://login.microsoftonline.com/')) {
     console.log('Logging in automatically');
     await new Authenticator(page).login(
@@ -56,7 +56,7 @@ import { Authenticator } from './authenticator';
   const values = config.answers.map((answer: Answer): unknown =>
     generatorResolver.resolve(answer).generate(answer.options),
   );
-
+  await page.screenshot({ path: 'screenshot.png' });
   await page.waitForSelector('.office-form-body');
 
   for (let i = 0; i < values.length; ++i) {
