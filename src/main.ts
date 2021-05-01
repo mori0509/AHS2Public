@@ -62,11 +62,11 @@ import { Authenticator } from './authenticator';
   );
   console.log('URL: %s',response.url())
   
-  let done=false;
+  let done=true;
   while(done){
     try{
       await page.waitForSelector('.office-form-body');
-      done=true;
+      done=false;
     }catch(e){
       console.log('Logging in automatically');
       await new Authenticator(page).login(
