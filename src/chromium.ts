@@ -13,6 +13,7 @@ export class Chromium {
       args: [
         '--no-sandbox',
         '--disable-gpu',
+        '--incognito',
       ],
     });
 
