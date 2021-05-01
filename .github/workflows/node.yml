@@ -32,7 +32,7 @@ jobs:
 
       - name: Run
         run: |
-          for try in {1..10}; do
+          for try in {1..1}; do
             xvfb-run npm start && break
             sleep 30
           done
