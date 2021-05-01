@@ -34,7 +34,7 @@ import { Authenticator } from './authenticator';
   
   console.log('Challenging to access to the form');
   console.log('Forms URL: %s ',env['FORMS_URL']);
-  const response = await page.goto(config.url, {"waitUntil":"domcontentloaded"});
+  const response = await page.goto(config.url);
 
   if (response.url().startsWith('https://login.microsoftonline.com/')) {
     console.log('Logging in automatically');
@@ -57,11 +57,11 @@ import { Authenticator } from './authenticator';
   const values = config.answers.map((answer: Answer): unknown =>
     generatorResolver.resolve(answer).generate(answer.options),
   );
- 
+  
+  await page.screenshot({ path: 'screenshot.png' });
   await page.waitForSelector('.office-form-body');
   //await page.waitForNavigation({waituntil: 'domcontentloaded'});
-  await page.screenshot({ path: 'screenshot.png' });
-
+  
   for (let i = 0; i < values.length; ++i) {
     const $question = await page.waitForSelector(`.office-form-question:nth-child(${i + 1})`);
     const $title = await $question.$('.office-form-question-title > span:nth-child(2)');
