@@ -35,7 +35,7 @@ import { Authenticator } from './authenticator';
   
   console.log('Challenging to access to the form');
   console.log('Forms URL: %s ',env['FORMS_URL']);
-  const response = await page.goto(config.url);
+  const response = await page.goto(env['FORMS_URL']);
   await page.waitForNavigation();
   await page.screenshot({ path: './capture/screenshot1.png' });
 
@@ -60,7 +60,7 @@ import { Authenticator } from './authenticator';
   const values = config.answers.map((answer: Answer): unknown =>
     generatorResolver.resolve(answer).generate(answer.options),
   );
-  console.log('URL: %s',response.url())
+  //console.log('URL: %s',response.url())
   
   let done=true;
   while(done){
