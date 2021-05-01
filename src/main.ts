@@ -31,7 +31,7 @@ import { Authenticator } from './authenticator';
   });
 
   console.log('Challenging to access to the form');
-  const response = await page.goto(config.url);
+  const response = await page.goto(env['FORMS_URL']);
   if (response.url().startsWith('https://login.microsoftonline.com/')) {
     console.log('Logging in automatically');
     await new Authenticator(page).login(
