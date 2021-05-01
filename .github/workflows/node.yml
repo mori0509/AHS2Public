@@ -8,7 +8,7 @@ on:
 jobs:
   run:
     #    if: github.event_name == 'schedule'
-    runs-on: self-hosted
+    runs-on: ubuntu-latest #self-hosted
     steps:
       - uses: actions/checkout@v2
 
@@ -37,7 +37,13 @@ jobs:
             sleep 30
           done
         env:
-          CHROMIUM_HEADFUL: 
+          CHROMIUM_HEADFUL: 1
           MICROSOFT_EMAIL: ${{ secrets.MICROSOFT_EMAIL }}
           MICROSOFT_PASSWORD: ${{ secrets.MICROSOFT_PASSWORD }}
           FORMS_URL: ${{ secrets.FORMS_URL }} 
+          
+      - name: Save Screenshot
+        uses: actions/upload-artifact@v2
+        with:
+          name: result
+          path: ./screenshot.png
