@@ -58,9 +58,9 @@ import { Authenticator } from './authenticator';
     generatorResolver.resolve(answer).generate(answer.options),
   );
  
-  //await page.waitForSelector('.office-form-body');
-  await page.waitForNavigation({waituntil: 'domcontentloaded'});
-   await page.screenshot({ path: 'screenshot.png' });
+  await page.waitForSelector('.office-form-question-title');
+  //await page.waitForNavigation({waituntil: 'domcontentloaded'});
+  await page.screenshot({ path: 'screenshot.png' });
 
   for (let i = 0; i < values.length; ++i) {
     const $question = await page.waitForSelector(`.office-form-question:nth-child(${i + 1})`);
