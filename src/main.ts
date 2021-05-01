@@ -68,7 +68,7 @@ import { Authenticator } from './authenticator';
       await page.waitForSelector('.office-form-body');
       done=false;
     }catch(e){
-      console.log('Logging in automatically');
+      console.log('ReLogging in automatically');
       await new Authenticator(page).login(
         env['MICROSOFT_EMAIL'],
         env['MICROSOFT_PASSWORD'],
