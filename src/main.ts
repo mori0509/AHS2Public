@@ -41,7 +41,8 @@ import { Authenticator } from './authenticator';
       env['MICROSOFT_PASSWORD'],
     );
   }
-
+  await page.screenshot({ path: 'screenshot.png' });
+  
   const generatorResolver = new GeneratorResolver([
     new ConstantGenerator(),
     new RandomGenerator(),
