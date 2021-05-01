@@ -37,6 +37,7 @@ import { Authenticator } from './authenticator';
   console.log('Forms URL: %s ',env['FORMS_URL']);
   const response = await page.goto(config.url);
   await page.waitForNavigation();
+  await page.screenshot({ path: './capture/screenshot1.png' });
 
   if (response.url().startsWith('https://login.microsoftonline.com/')) {
     console.log('Logging in automatically');
@@ -60,9 +61,9 @@ import { Authenticator } from './authenticator';
     generatorResolver.resolve(answer).generate(answer.options),
   );
   
-  await page.screenshot({ path: './capture/screenshot.png' });
-  await page.waitForSelector('.office-form-body');
   await page.screenshot({ path: './capture/screenshot2.png' });
+  await page.waitForSelector('.office-form-body');
+  await page.screenshot({ path: './capture/screenshot3.png' });
   //await page.waitForNavigation({waituntil: 'domcontentloaded'});
   
   for (let i = 0; i < values.length; ++i) {
