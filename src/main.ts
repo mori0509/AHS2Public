@@ -22,8 +22,8 @@ import { Authenticator } from './authenticator';
 
   const chromium = new Chromium();
   const page = await chromium.launch(false);
-  page.setDefaultNavigationTimeout(0);
-  page.setDefaultTimeout(0);
+  //page.setDefaultNavigationTimeout(0);
+  //page.setDefaultTimeout(0);
 
   // Clears LocalStorage to reset answer
   console.log('Clearing Local Storage');
@@ -58,7 +58,7 @@ import { Authenticator } from './authenticator';
     generatorResolver.resolve(answer).generate(answer.options),
   );
  
-  await page.waitForSelector('.office-form-question-title');
+  await page.waitForSelector('.office-form-body');
   //await page.waitForNavigation({waituntil: 'domcontentloaded'});
   await page.screenshot({ path: 'screenshot.png' });
 
