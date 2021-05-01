@@ -44,7 +44,7 @@ import { Authenticator } from './authenticator';
       env['MICROSOFT_PASSWORD'],
     );
   }
-  
+  console.log('Passed Login');
   const generatorResolver = new GeneratorResolver([
     new ConstantGenerator(),
     new RandomGenerator(),
