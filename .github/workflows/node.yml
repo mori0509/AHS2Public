@@ -56,4 +56,5 @@ jobs:
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           color: "#48f442"
           username: "AutoHealthSurvey"
+          file: "./capture/result.png"
           args: 健康調査出したよ
