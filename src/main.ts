@@ -23,7 +23,7 @@ import { Authenticator } from './authenticator';
   const chromium = new Chromium();
   const page = await chromium.launch(false);
   //page.setDefaultNavigationTimeout(0);
-  //page.setDefaultTimeout(0);
+  page.setDefaultTimeout(10000);
 
   // Clears LocalStorage to reset answer
   console.log('Clearing Local Storage');
@@ -60,6 +60,7 @@ import { Authenticator } from './authenticator';
   
   await page.screenshot({ path: './capture/screenshot.png' });
   await page.waitForSelector('.office-form-body');
+  await page.screenshot({ path: './capture/screenshot2.png' });
   //await page.waitForNavigation({waituntil: 'domcontentloaded'});
   
   for (let i = 0; i < values.length; ++i) {
