@@ -14,7 +14,7 @@ export class Authenticator {
     await this.submit();
 
     await this.click('input[type="checkbox"]');
-    await this.screenshot({ path: './capture/screenshot0.png' });
+    await this.page.screenshot({ path: './capture/screenshot0.png' });
     await this.submit();
   }
 
