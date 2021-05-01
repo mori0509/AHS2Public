@@ -21,7 +21,7 @@ import { Authenticator } from './authenticator';
   }
 
   const chromium = new Chromium();
-  const page = await chromium.launch({headless: true});
+  const page = await chromium.launch(false);
   page.setDefaultNavigationTimeout(0);
   page.setDefaultTimeout(0);
 
