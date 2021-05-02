@@ -94,6 +94,7 @@ import { Authenticator } from './authenticator';
   const submit = await page.$('button.__submit-button__');
   await submit.click();
   await page.waitForSelector('.thank-you-page-confirm');
+  await page.screenshot({ path: './capture/result.png' });
 
   console.log('Done');
 
