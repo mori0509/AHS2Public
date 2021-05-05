@@ -43,11 +43,11 @@ jobs:
           MICROSOFT_PASSWORD: ${{ secrets.MICROSOFT_PASSWORD }}
           FORMS_URL: ${{ secrets.FORMS_URL }} 
           
-      - name: Save Screenshot
-        uses: actions/upload-artifact@v2
-        with:
-          name: result
-          path: ./capture
+#      - name: Save Screenshot
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: result
+#          path: ./capture
           
       - name: Discord Message Notify
         uses: appleboy/discord-action@0.0.3
