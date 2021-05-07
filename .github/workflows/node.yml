@@ -3,7 +3,9 @@ name: Node.js
 on:
   workflow_dispatch:
   schedule:
-   - cron: '30 21 * * *'
+   - cron: '00 22 * * *'
+   # 分 時 * * *の順番
+   # 朝7時は上に22って書く
 
 jobs:
   run:
@@ -49,12 +51,12 @@ jobs:
 #          name: result
 #          path: ./capture
           
-      - name: Discord Message Notify
-        uses: appleboy/discord-action@0.0.3
-        with:
-          webhook_id: ${{ secrets.WEBHOOK_ID }}
-          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-          color: "#48f442"
-          username: "AutoHealthSurvey"
-          file: "./capture/result.png"
-          args: 健康調査出したよ
+#      - name: Discord Message Notify
+#        uses: appleboy/discord-action@0.0.3
+#        with:
+#          webhook_id: ${{ secrets.WEBHOOK_ID }}
+#          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+#          color: "#48f442"
+#          username: "AutoHealthSurvey"
+#          file: "./capture/result.png"
+#          args: 健康調査出したよ
