@@ -59,4 +59,4 @@ jobs:
           color: "#48f442"
           username: "AutoHealthSurvey"
           file: "./capture/result.png"
-          args: 健康調査出したよ
+          args: 森下くんは健康調査出したよ
