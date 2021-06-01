@@ -3,7 +3,7 @@ name: Node.js
 on:
   workflow_dispatch:
   schedule:
-   - cron: '45 22 * * *'
+   - cron: '00 22 * * *'
    # 分 時 * * *の順番
    # 朝7時は上に22って書く
 
